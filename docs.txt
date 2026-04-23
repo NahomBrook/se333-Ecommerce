@@ -1,0 +1,102 @@
+SE333 Mid-Lab Assessment — E-Commerce Frontend
+================================================
+Developer : Nahom Brook
+Student ID : (enter your ID here)
+Date       : April 2026
+
+----------------------------------------------------------------------
+HOW TO RUN
+----------------------------------------------------------------------
+Prerequisites: Node.js 18+ installed.
+
+1. Install dependencies:
+     npm install
+
+2. Start the development server:
+     npm run dev
+
+3. Open the URL shown in the terminal (usually http://localhost:5173)
+
+4. To create a production build:
+     npm run build
+     npm run preview
+
+No backend, database, or environment variables are required.
+All data is hardcoded in src/data/products.js.
+
+----------------------------------------------------------------------
+FEATURES IMPLEMENTED
+----------------------------------------------------------------------
+• Product Catalog      — 12 products across 4 categories (Electronics,
+                         Sports, Home & Kitchen, Books), displayed in a
+                         responsive grid.
+• Category Filter      — Sidebar buttons filter the grid in real time.
+• Search               — Keyword search (name, description, category)
+                         via URL query param (?q=). Works from both the
+                         hero search bar and the navbar form.
+• Recent Search Cache  — Last 3 unique queries stored in sessionStorage
+                         and shown as autocomplete suggestions.
+• Product Detail Page  — /product/:id — full description, stock status,
+                         Add to Cart button with redirect to cart.
+• Shopping Cart        — Add, remove, adjust quantity. Subtotal and
+                         line totals computed live.
+• Cart Persistence     — Cart state saved to localStorage; survives
+                         page refresh.
+• Checkout Form        — Full name, email, delivery address, card number.
+                         Client-side validation (regex + required checks)
+                         with per-field error messages.
+• Order Simulation     — On valid submit the order is written to
+                         localStorage and the cart is cleared.
+• Order History Page   — /orders — lists all past orders with item
+                         breakdown, totals, date, and customer details.
+• React Router v7      — Client-side navigation across 5 routes with
+                         no page reloads.
+• Context API          — CartContext (CartProvider + useCart) shares
+                         cart state and dispatch across the whole tree.
+
+----------------------------------------------------------------------
+CACHING STRATEGY
+----------------------------------------------------------------------
+
+Product Data Cache (localStorage, 5-minute TTL)
+  Implemented in: src/hooks/useProductCache.js
+
+  On first load (or when the cache has expired):
+    • A 500 ms simulated network delay is applied (setTimeout).
+    • The product array is written to localStorage under the key
+      "se333_product_cache" together with a timestamp.
+    • Subsequent loads within 5 minutes (300 000 ms) read directly
+      from the cache, skipping the delay entirely.
+    • After 5 minutes the entry is treated as stale; fresh data is
+      fetched and the cache is overwritten.
+
+  Why localStorage?
+    Persists across page refreshes, simulating a real-world scenario
+    where a mobile user might leave and return to the same catalogue
+    without burning extra network requests.
+
+Recent Search Cache (sessionStorage, last 3 queries)
+  Implemented in: src/pages/Home.jsx  (getSearchHistory / addToSearchHistory)
+
+  • Each submitted search term is prepended to a list stored in
+    sessionStorage under "se333_search_history".
+  • Duplicate queries are de-duplicated (the existing entry is moved
+    to the top instead of being added twice).
+  • The list is capped at 3 entries; older entries are dropped.
+  • Shown as a dropdown below the search input on focus.
+  • Uses sessionStorage so the suggestions reset when the browser
+    tab is closed — appropriate for short-session search behaviour.
+
+Cart & Order Persistence (localStorage, no TTL)
+  • Cart: "se333_cart"   — updated on every cart action.
+  • Orders: "se333_orders" — orders prepended on checkout; never
+    automatically cleared (user keeps their order history).
+
+----------------------------------------------------------------------
+TECH STACK
+----------------------------------------------------------------------
+• React 19 (Vite)
+• React Router v7
+• Context API + useReducer  (cart state)
+• localStorage / sessionStorage  (persistence & caching)
+• Plain CSS (src/index.css)  — no UI framework
