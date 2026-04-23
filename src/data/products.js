@@ -7,7 +7,7 @@ export const PRODUCTS = [
     category: "Electronics",
     description: "Premium over-ear headphones with active noise cancellation, 30-hour battery life, touch controls, and foldable design. Compatible with all Bluetooth devices.",
     stock: 15,
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&h=300",
+    image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=400&h=300",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const PRODUCTS = [
     category: "Electronics",
     description: "Full-size mechanical keyboard with Cherry MX switches, per-key RGB lighting, anti-ghosting, and a detachable USB-C cable. Ideal for gaming and productivity.",
     stock: 8,
-    image: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=400&h=300",
+    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=400&h=300",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ export const PRODUCTS = [
     category: "Sports",
     description: "6mm thick non-slip yoga mat made from eco-friendly TPE material. Includes carrying strap and alignment lines. Suitable for all yoga styles.",
     stock: 30,
-    image: "https://images.unsplash.com/photo-1601925228008-34e1e6a9c37d?auto=format&fit=crop&w=400&h=300",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=400&h=300",
   },
   {
     id: 7,
@@ -79,7 +79,7 @@ export const PRODUCTS = [
     category: "Home & Kitchen",
     description: "Adjustable LED desk lamp with 5 colour modes, 7 brightness levels, a built-in USB-A charging port, and touch-sensitive controls. Energy efficient.",
     stock: 18,
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a35d44c93?auto=format&fit=crop&w=400&h=300",
+    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=400&h=300",
   },
   {
     id: 10,
@@ -97,7 +97,7 @@ export const PRODUCTS = [
     category: "Books",
     description: "Douglas Crockford distils JavaScript down to its most reliable features. A concise guide to the good parts of the language every developer should master.",
     stock: 40,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14431b9?auto=format&fit=crop&w=400&h=300",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=400&h=300",
   },
   {
     id: 12,
@@ -106,7 +106,7 @@ export const PRODUCTS = [
     category: "Books",
     description: "The definitive algorithms textbook used in universities worldwide. Covers sorting, graphs, dynamic programming, and much more with rigorous proofs.",
     stock: 10,
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5c52?auto=format&fit=crop&w=400&h=300",
+    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&h=300",
   },
 ];
 
